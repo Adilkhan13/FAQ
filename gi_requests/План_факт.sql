@@ -35,15 +35,15 @@ UNION
 
 SELECT 
 	DATEPART(MM, TrnOver.TurnoverPeriod) as Month
-    ,DATEPART(YY, TrnOver.TurnoverPeriod) as Year
+	,DATEPART(YY, TrnOver.TurnoverPeriod) as Year
 	,Rpt.id as Report
-    ,Org.Name			 
+	,Org.Name			 
 	,RptLine.id
 	,RptLine.Code as Code
 	,RptLine.GUID as GUID			 
 	,RptLine.Parent as ParentGUID
 	,RptLine.Name as RptLineName
-    ,SuM(0) as PlanAmount
+	,SuM(0) as PlanAmount
 	,SuM(CASE WHEN TrnOver.TypeOfTurnovers = 'Кт' then TrnOver.RegulatedAmountNew else -TrnOver.RegulatedAmountNew END) as FactAmount 
 FROM [Map_Turnovers] TrnOver
 	left join [map_rpt_ReportLineStructures] RptLineStr ON RptLineStr.Account = TrnOver.Account
@@ -68,8 +68,7 @@ group by
 	,RptLine.Name
 	,TrnOver.TurnoverPeriod
 
-
- UNION
+UNION
 
 SELECT 
 	DATEPART(MM, TrnOver.TurnoverPeriod) as Month
