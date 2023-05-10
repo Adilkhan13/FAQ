@@ -24,10 +24,10 @@ group by
 	Rpt.id
 	,Org.Name
 	,RptLine.Report
+	,RptLine.id
 	,RptLine.GUID
 	,RptLine.Parent
 	,RptLine.Code
-	,RptLine.id
 	,RptLine.Name
 	,mPlan.Period
 
@@ -67,6 +67,7 @@ group by
 	,RptLine.id
 	,RptLine.Name
 	,TrnOver.TurnoverPeriod
+
 
 UNION
 
